@@ -15,8 +15,6 @@ import model.FieldType;
 
 public class Visitor extends ASTVisitor {
 	
-	public List<String> fieldNameList = new ArrayList<>();
-	public List<String> fieldTypeList = new ArrayList<>();
 	public List<FieldType> fieldTypeObj = new ArrayList<FieldType>();
 	public List<String> methodNames = new ArrayList<String>();
 	public String className = "";
@@ -31,14 +29,11 @@ public class Visitor extends ASTVisitor {
 			boolean isStatic  = Modifier.isStatic(node.getModifiers());
 			
 			if(!isStatic) {
-				fieldNameList.add(name);
-				fieldTypeList.add(type);
 				fieldTypeObj.add(new FieldType(name, type));
-				System.out.println("Field name -> " + name + " type -> " + type);
 			}
 			
 		}
-		return false; // False to avoid child VariableDeclarationFragment to be processed again	
+		return false;
 	}
 	
 	@Override

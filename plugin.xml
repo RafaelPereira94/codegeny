@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+   <extension-point id="ExtensionPointGenerator" name="ExtensionPointGenerator" schema="schema/ExtensionPointGenerator.exsd"/>
    <extension
          id="view"
          name="CodeGeny"
          point="pt.iscte.pidesco.view">
       <view
-            class="codegeny.View">
+            class="codegeny.View"
+            icon="icon.png">
       </view>
+   </extension>
+   <extension
+         point="codegeny.ExtensionPointGenerator">
+      <generator
+            class="codegeny.TestExtensionPoint">
+      </generator>
    </extension>
 
 </plugin>
