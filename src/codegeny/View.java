@@ -33,7 +33,7 @@ public class View implements PidescoView {
 	private static final String OVERRIDE = "@Override";
 	private static final String SPACE = " ";
 	private static final String EXTENSIONPOINT_NAME = "codegeny.ExtensionPointGenerator";
-
+	
 	public View() {}
 
 	@Override
@@ -63,10 +63,8 @@ public class View implements PidescoView {
 					try {
 						extension = (IGenerator) iconf.createExecutableExtension("class");
 					} catch (InvalidRegistryObjectException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					} catch (CoreException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 
@@ -109,8 +107,6 @@ public class View implements PidescoView {
 				List<FieldType> fieldTypeList = visitor.fieldTypeObj;
 				String className = visitor.className;
 				
-				//if the method already exists in the class we don't show up.
-				
 				if(!methodList.contains("equals")) {
 					String method = writeEqualsMethod(fieldTypeList, className);
 					javaEditorServices.insertTextAtCursor(method);
@@ -132,8 +128,6 @@ public class View implements PidescoView {
 				List<String> methodList = visitor.methodNames;
 				List<FieldType> fieldTypeList = visitor.fieldTypeObj;
 				String className = visitor.className;
-				
-				//if the method already exists in the class we don't show up.
 				
 				if(!methodList.contains("toString")) {
 					String method = writeToStringMethod(fieldTypeList, className, true);
